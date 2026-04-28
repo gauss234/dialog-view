@@ -92,6 +92,7 @@ def _build_dsn(cfg: dict) -> dict:
         user=cfg["user"],
         password=cfg["password"],
         connect_timeout=10,
+        client_encoding="UTF8",
     )
 
 
