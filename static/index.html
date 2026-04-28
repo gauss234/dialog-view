@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Dialog Viewer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">⚙️ Database</span>
+        <button class="sidebar-toggle" id="sidebarToggle" title="Collapse sidebar">◀</button>
+      </div>
+
+      <form id="dbForm" autocomplete="off">
+        <div class="form-group">
+          <label for="dbHost">Host</label>
+          <input type="text" id="dbHost" value="localhost" placeholder="localhost">
+        </div>
+        <div class="form-group">
+          <label for="dbPort">Port</label>
+          <input type="number" id="dbPort" value="5432" min="1" max="65535">
+        </div>
+        <div class="form-group">
+          <label for="dbName">Database</label>
+          <input type="text" id="dbName" placeholder="database name">
+        </div>
+        <div class="form-group">
+          <label for="dbUser">User</label>
+          <input type="text" id="dbUser" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label for="dbPass">Password</label>
+          <input type="password" id="dbPass" placeholder="password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="connectBtn">Connect</button>
+      </form>
+
+      <div id="dbStatus"></div>
+
+      <div class="sidebar-tip">
+        Tip: put credentials in <code>.streamlit/secrets.toml</code> to auto-fill.
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <div class="main-inner">
+        <h1 class="page-title">💬 Agent Dialog Viewer</h1>
+        <p class="page-caption">
+          Input a session ID to replay the full conversation history stored in
+          <code>qa_session</code> / <code>qa_record</code>.
+        </p>
+
+        <div class="search-bar">
+          <input type="text" id="sessionInput" class="search-input"
+                 placeholder="Enter session_id …" spellcheck="false">
+          <button id="loadBtn" class="btn btn-primary">Load</button>
+        </div>
+
+        <div id="results"></div>
+      </div>
+    </main>
+
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
