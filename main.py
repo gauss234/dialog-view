@@ -75,6 +75,7 @@ def _dsn(cfg: DBConfig) -> dict:
     return dict(
         host=cfg.host, port=cfg.port, dbname=cfg.dbname,
         user=cfg.user, password=cfg.password, connect_timeout=10,
+        client_encoding="UTF8",
     )
 
 
